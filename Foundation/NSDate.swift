@@ -207,6 +207,16 @@ extension NSDate {
     }
 }
 
+extension NSDate : Comparable {}
+
+public func == (left: NSDate, right: NSDate) -> Bool {
+    return (left.compare(right) == NSComparisonResult.OrderedSame)
+}
+
+public func < (left: NSDate, right: NSDate) -> Bool {
+    return (left.compare(right) == NSComparisonResult.OrderedAscending)
+}
+
 extension NSDate : _CFBridgable { }
 
 extension CFDateRef : _NSBridgable {
